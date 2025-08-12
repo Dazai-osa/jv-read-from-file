@@ -1,8 +1,9 @@
 package core.basesyntax;
 
-import java.io.*;
-import java.lang.reflect.Array;
-import java.util.Arrays;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class FileWork {
     public String[] readFromFile(String fileName) {
