@@ -12,10 +12,10 @@ public class FileWork {
             StringBuilder fileText = new StringBuilder();
             String value = bufferedReader.readLine();
             while (value != null) {
-                fileText.append(value);
+                fileText.append(value).append(" ");
                 value = bufferedReader.readLine();
             }
-            String[] arrTexts = bufferedReader.toString().toLowerCase().split("\\W+");
+            String[] arrTexts = fileText.toString().toLowerCase().split("\\W+");
             StringBuilder splitText = new StringBuilder();
             for (String arrText : arrTexts) {
                 if (arrText.startsWith("w")) {
