@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class FileWork {
     public String[] readFromFile(String fileName) {
@@ -17,17 +19,13 @@ public class FileWork {
                 value = bufferedReader.readLine();
             }
             String[] arrTexts = fileText.toString().toLowerCase().split("\\W+");
-            StringBuilder splitText = new StringBuilder();
+            ArrayList<String> text = new ArrayList<>();
             for (String arrText : arrTexts) {
                 if (arrText.startsWith("w")) {
-                    splitText.append(arrText).append(" ");
+                    text.add(arrText);
                 }
             }
-            String[] result = splitText.toString().split(" ");
-            for (int i = 0; i < result.length; i++) {
-                result[i] = result[i].replaceAll("^a-zA-Z", " ");
-            }
-            return result;
+            return text.toArray(new String[0]);
         } catch (FileNotFoundException e) {
             throw new RuntimeException("Can`t found the file", e);
         } catch (IOException e) {
